@@ -1,0 +1,33 @@
+<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+  <a class="navbar-brand" href="/" style="margin-left: 10px">Simple Airbnb</a>
+  <form class="form-inline">
+    <button class="btn btn-outline-primary" type="button" href="/index" style="margin-right: 10px">All Listings</button>
+  </form>
+</nav>
+<div class="container">
+  <h1>Showing all available listings! (<%= @flats.count %>)</h1>
+  <hr>
+  <div class="row">
+  <% @flats.each do |flat| %>
+    <div class="col-4">
+      <div class="card shadow p-3 mb-5 bg-white rounded" style="min-height: 15rem ">
+        <div class="card-body">
+          <h5 class="card-title text-center"><%= flat.name %></h5>
+          <p class="card-text"><%= flat.description %>.</p>
+          <div id="icons" class="d-flex justify-content-center" style="gap: 50px">
+            <div>
+              <i class="fa-solid fa-sterling-sign"> <%= flat.price_per_night %></i>
+            </div>
+            <div>
+              <i class="fa-solid fa-person-walking-luggage"> <%= flat.number_of_guests %></i>
+            </div>
+          </div>
+          <div class="d-flex justify-content-center" style="margin-top: 10px">
+            <a href="/" class="btn btn-primary ">Go to listing</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  </div>
+</div>
