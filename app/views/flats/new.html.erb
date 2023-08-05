@@ -1,0 +1,16 @@
+<%= render "navbar" %>
+
+<div class="container">
+  <h1>Add a new flat!</h1>
+  <hr>
+  <div class="h-100 d-flex align-items-center justify-content-center card shadow p-3 mb-5 bg-white rounded">
+    <%= simple_form_for @flat do |f| %>
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.input :description %>
+    <%= f.input :price_per_night, as: :integer, input_html: { min: '0', max: '999', step: 'any'}%>
+    <%= f.input :number_of_guests, as: :integer, input_html: { min: '0', max: '5', step: '1'}%>
+    <%= f.button :submit, class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>

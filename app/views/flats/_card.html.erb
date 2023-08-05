@@ -1,12 +1,5 @@
-<%= render "navbar" %>
-<div class="container">
-  <h1>Showing all available listings! (<%= @flats.count %>)</h1>
-  <hr>
-  <div class="row">
-  <% @flats.each do |flat| %>
-    <div class="col-4">
+<div class="col-4">
       <div class="card shadow p-3 mb-5 bg-white rounded" style="min-height: 15rem ">
-        <img class ="card-img-top" src="<%= Faker::LoremFlickr.image %>" alt="random image">
         <div class="card-body">
           <h5 class="card-title text-center"><%= flat.name %></h5>
           <p class="card-text"><%= flat.description %>.</p>
@@ -19,11 +12,8 @@
             </div>
           </div>
           <div class="d-flex justify-content-center" style="margin-top: 10px">
-            <%= button_to 'Go to listing', {:controller => "flats", :action => "show", :id => flat.id}, :method=>:put %>
+            <a href="/" class="btn btn-primary ">Go to listing</a>
           </div>
         </div>
       </div>
     </div>
-  <% end %>
-  </div>
-</div>
